@@ -125,15 +125,16 @@ const lightboxTransition = computed(() => {
 
 const loadImages = async () => {
   const folder = props.hobby.id
+  const baseUrl = import.meta.env.BASE_URL || '/'
   
   try {
-    const response = await fetch('/images/images.json')
+    const response = await fetch(`${baseUrl}images/images.json`)
     const config = await response.json()
     const imageFiles = config[folder] || []
     
     const imageList = imageFiles.map((filename, index) => ({
       id: index + 1,
-      src: `/images/${folder}/${filename}`,
+      src: `${baseUrl}images/${folder}/${filename}`,
       title: `${props.hobby.name} ${index + 1}`,
       description: `记录${props.hobby.name}的美好瞬间`,
       date: '2024-01-' + String(15 - index).padStart(2, '0')
