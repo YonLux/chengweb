@@ -9,6 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@waline/client": "^3.13.0",
+    "twikoo": "^1.7.3",
     "vue": "^3.4.0"
   },
   "devDependencies": {
