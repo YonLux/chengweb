@@ -95,6 +95,8 @@ const moods = [
   { emoji: '🚀' }
 ]
 
+const MAX_MESSAGES = 20
+
 const newMessage = reactive({
   name: '',
   content: '',
@@ -113,6 +115,11 @@ const addMessage = () => {
     likes: 0
   }
   messages.value.unshift(message)
+  
+  if (messages.value.length > MAX_MESSAGES) {
+    messages.value = messages.value.slice(0, MAX_MESSAGES)
+  }
+  
   saveMessages()
   newMessage.name = ''
   newMessage.content = ''
@@ -132,33 +139,6 @@ const loadMessages = () => {
   const saved = localStorage.getItem('guestbook_messages')
   if (saved) {
     messages.value = JSON.parse(saved)
-  } else {
-    messages.value = [
-      {
-        id: 1,
-        name: '访客小明',
-        content: '网站做得非常棒！动画效果很炫酷，继续加油！',
-        mood: '🎉',
-        time: '2024/01/15 14:30',
-        likes: 12
-      },
-      {
-        id: 2,
-        name: '技术爱好者',
-        content: '从你的技术栈可以看出你是一个很有追求的开发者，期待更多作品！',
-        mood: '💪',
-        time: '2024/01/14 10:20',
-        likes: 8
-      },
-      {
-        id: 3,
-        name: '路人甲',
-        content: '路过打卡，页面设计很有创意！',
-        mood: '🌟',
-        time: '2024/01/13 16:45',
-        likes: 5
-      }
-    ]
   }
 }
 

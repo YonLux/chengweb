@@ -19,6 +19,7 @@
           <HeroSection />
           <AboutSection />
           <SkillsSection @openGallery="openGallery" />
+          <WebsiteNavSection />
           <ContactSection />
           <GuestbookSection />
         </main>
@@ -35,6 +36,7 @@ import Navbar from './components/Navbar.vue'
 import HeroSection from './components/HeroSection.vue'
 import AboutSection from './components/AboutSection.vue'
 import SkillsSection from './components/SkillsSection.vue'
+import WebsiteNavSection from './components/WebsiteNavSection.vue'
 import ContactSection from './components/ContactSection.vue'
 import GuestbookSection from './components/GuestbookSection.vue'
 import Footer from './components/Footer.vue'
